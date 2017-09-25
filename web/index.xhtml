@@ -1,14 +1,31 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
-    </h:body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+
+    <ui:define name="corpo">
+        <section>
+            <div class="jumbotron mt-5">
+                <h1 class="display-3">Hello World!</h1>
+                <p class="lead">Seja bem vindo ao meu software de controle de tarefas.</p>
+                <hr class="my-4" />
+                <p>Este software foi desenvolvido por Thiago Cunha, e por incrível que pareça, é muito fácil usar o Taskys em seu dia a dia como profissional ou estudante. Você pode começar adicionando uma tarefa nova!</p>
+                <p class="lead">
+
+                <h:form>
+                    <h:commandLink styleClass="btn btn-primary btn-sm mt-5 pr-5 pl-5" action="#{tarefaBean.solicitaIncluir()}" value="Adicionar nova tarefa" />
+                </h:form>
+
+                </p>
+            </div>
+        </section>
+
+        
+
+    </ui:define>
+
+</ui:decorate>
 

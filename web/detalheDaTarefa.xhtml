@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+
+    <ui:define name="corpo">
+        <h1 class="display-4 mt-5">Detalhes da tarefa</h1>
+        <h:form>
+            <section class="mt-5">
+                <h:panelGrid columns="2" width="300px">
+                    <h:outputText value="Código da tarefa: " />
+                    <h:outputText value="#{tarefaBean.tarefa.id}" />
+                    
+                    <h:outputText value="Título da tarefa: " />
+                    <h:inputText value="#{tarefaBean.tarefa.nome}" styleClass="form-control-sm" />
+                    
+                    <h:outputText value="Data de Entrega: " />
+                    <h:inputText value="#{tarefaBean.tarefa.dataLimite}" styleClass="form-control-sm" />
+                    
+                    <h:outputText value="Prioridade: " />
+                    <h:inputText value="#{tarefaBean.tarefa.prioridade}" styleClass="form-control-sm" id="numeroDaPrioridade"/>
+                    
+                    <h:outputText value="Progresso: " />
+                    <h:outputText value="#{tarefaBean.tarefa.porcentual}" styleClass="form-control-sm" />
+                    
+                    <h:outputText value="botao" rendered="false" />
+                    <h:commandButton action="#{tarefaBean.alterar()}" value="Salvar alterações" styleClass="btn btn-primary mt-3" onclick="validaFormulario();" />
+                </h:panelGrid>
+            </section>
+        </h:form>
+        <section>
+            <h:form id="formularioDeCadastroDeItem" styleClass="mb-5">
+                <h:dataTable value="#{itemBean.getItens(tarefaBean.tarefa.id)}" var="item" styleClass="table mt-5">
+                    <h:column>
+                        <f:facet name="header">Porcentual</f:facet>
+                        <h:inputText value="#{item.andamento}" styleClass="form-control mr-5" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Descrição da tarefa</f:facet>
+                        <h:inputText value="#{item.descricao}" styleClass="form-control mr-5" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Data de execução</f:facet>
+                        <h:outputText value="#{item.dataExecucao}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Ações</f:facet>
+                        <h:selectBooleanCheckbox value="#{item.concluido}" /> OK?
+                        <h:commandButton action="#{itemBean.iniciarItem(item, tarefaBean.tarefa)}" value="Trabalhar" styleClass="ml-3 btn btn-primary btn-sm" />
+                        <h:commandButton action="#{itemBean.solicitaAlterar(item)}" value="Alterar" styleClass="ml-3 btn btn-primary btn-sm" />
+                    </h:column>
+                </h:dataTable>
+                <h:commandButton value="Adicionar novo item" action="#{itemBean.solicitaIncluir(tarefaBean.tarefa)}" styleClass="btn btn-primary mt-3" />
+            </h:form>
+        </section>
+    </ui:define>
+
+</ui:decorate>
+

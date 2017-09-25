@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://java.sun.com/jsf/html"
+             xmlns:f="http://java.sun.com/jsf/core"
+             xmlns:ui="http://java.sun.com/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+
+    <ui:define name="corpo">
+        <h1 class="display-4 mt-5">Lista de Tarefas encerradas</h1>
+        <p>Você pode restaurar as tarefas caso deseje reabrir.</p>
+
+        <h:form id="frm" styleClass="mb-5">
+            <h:dataTable value="#{tarefaBean.tarefasConcluidas}" var="item" styleClass="table mt-5">
+
+                <h:column>
+                    <f:facet name="header">Nome da Tarefa</f:facet>
+                    <h:outputText value="#{item.nome}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Ações</f:facet>
+                    <div class="float-left"><h:commandButton action="#{tarefaBean.excluir(item)}" value="Excluir para sempre" styleClass="btn btn-danger btn-sm" /></div>
+                    <div class="float-left ml-3"><h:commandButton action="#{tarefaBean.reabrir(item)}" value="Reabrir" styleClass="btn btn-warning btn-sm" /></div>
+
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+
+</ui:decorate>
+

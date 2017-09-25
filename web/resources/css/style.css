@@ -1,0 +1,58 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23/09/2017, 00:15:02
+    Author     : thiago
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+.btn {
+    cursor: pointer;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #b3d7ff !important;
+}
+
+.navbar-brand {
+    font-family: 'Lobster', cursive;
+    font-size: 2em;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.float-left {
+    float: left !important;
+}
+
+i {
+    font-size: 1.5em;
+}
+
+.btn-outline-light:hover {
+    color:#007bff;
+}
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 30px;
+}
+
+.centralizar-formulario {
+    margin: 0 auto !important;
+}
