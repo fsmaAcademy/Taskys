@@ -24,7 +24,7 @@
                     <h:inputText value="#{tarefaBean.tarefa.prioridade}" styleClass="form-control-sm" id="numeroDaPrioridade"/>
                     
                     <h:outputText value="Progresso: " />
-                    <h:outputText value="#{tarefaBean.tarefa.porcentual}" styleClass="form-control-sm" />
+                    <h:outputText value="#{tarefaBean.tarefa.porcentual}%" styleClass="form-control-sm" />
                     
                     <h:outputText value="botao" rendered="false" />
                     <h:commandButton action="#{tarefaBean.alterar()}" value="Salvar alterações" styleClass="btn btn-primary mt-3" onclick="validaFormulario();" />
