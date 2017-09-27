@@ -5,6 +5,7 @@
  */
 package com.tarefa.controller;
 
+import com.tarefa.DAO.ItemDAO;
 import com.tarefa.DAO.TarefaDAO;
 import com.tarefa.model.Item;
 import com.tarefa.model.Tarefa;
@@ -72,8 +73,17 @@ public class TarefaBean {
         tarefaDao.alterar(tarefa);
         return null;
     }
-
+    
+    /**
+     * 
+     * @param tarefa
+     * Minha dúvida é se a exclusão dos intens pode ser realizado aqui, ou precisa
+     * ser instanciado dentro de itemBean?
+     * @return 
+     */
     public String excluir(Tarefa tarefa) {
+        ItemDAO itemDao = new ItemDAO();
+        itemDao.excluiItensDaTarefa(tarefa.getId());
         this.tarefaDao.excluir(tarefa);
         return null;
     }

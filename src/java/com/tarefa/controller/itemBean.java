@@ -64,6 +64,11 @@ public class itemBean {
        return null;
     }
     
+    public String excluir(Item item) {
+        this.itemDao.excluir(item);
+        return null;
+    }
+    
     public String iniciarItem(Item item, Tarefa tarefa) {
         this.item = item;
         this.tarefa = tarefa;

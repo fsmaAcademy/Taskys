@@ -52,8 +52,9 @@
                     <h:column>
                         <f:facet name="header">Ações</f:facet>
                         <h:selectBooleanCheckbox value="#{item.concluido}" /> OK?
-                        <h:commandButton action="#{itemBean.iniciarItem(item, tarefaBean.tarefa)}" value="Trabalhar" styleClass="ml-3 btn btn-primary btn-sm" />
+                        <h:commandButton action="#{itemBean.iniciarItem(item, tarefaBean.tarefa)}" value="Trabalhar" styleClass="ml-3 btn btn-success btn-sm" />
                         <h:commandButton action="#{itemBean.solicitaAlterar(item)}" value="Alterar" styleClass="ml-3 btn btn-primary btn-sm" />
+                        <h:commandButton action="#{itemBean.excluir(item)}" value="Excluir" styleClass="ml-3 btn btn-danger btn-sm" />
                     </h:column>
                 </h:dataTable>
                 <h:commandButton value="Adicionar novo item" action="#{itemBean.solicitaIncluir(tarefaBean.tarefa)}" styleClass="btn btn-primary mt-3" />

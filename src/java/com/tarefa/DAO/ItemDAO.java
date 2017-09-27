@@ -45,6 +45,15 @@ public class ItemDAO {
         return repositorio.getList();
     }
     
+    public void excluiItensDaTarefa(Integer idTarefa) {
+               
+        for (Item item : this.itens) {
+            if(item.getIdTarefa().equals(idTarefa)) {
+                repositorio.excluir(item);
+            }
+        }
+    }
+    
     public List<Item> getListaDaTarefa(Integer idTarefa) {
         List<Item> itensDaTarefa = new ArrayList<Item>();
         

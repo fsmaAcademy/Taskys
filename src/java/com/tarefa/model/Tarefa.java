@@ -109,20 +109,6 @@ public class Tarefa {
         this.detalhe = detalhe;
     }
 
-//    public List<Item> getItens() {
-//        
-//        
-//        List<Item> itens = new ItemDAO().getListaTodas();
-//        
-//        for (Item item : itens) {
-//            if (item.getIdTarefa().equals(this.id)) {
-//                this.itens.add(item);
-//            }
-//        }
-//        
-//        return this.itens;
-//    }
-
     public Integer getId() {
         return id;
     }
