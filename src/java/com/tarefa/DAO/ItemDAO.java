@@ -16,68 +16,86 @@ import java.util.List;
  * Acho que facilita muito a minha vida na hora de deixar o sistema e as regras de negócios
  * mais particulares de uma classe livres.
  */
-public class ItemDAO {
+public class ItemDAO implements Dados {
     
     private static List<Item> itens = new ArrayList<Item>();
     
-    private Repositorio<Item> repositorio = new Repositorio<Item>(itens) {
-        
-        @Override
-        public void setKey(Item t) {
-            t.setId(Sequence.getId());
-        }
-        
-    };
-
-    public void incluir(Item t) {
-        repositorio.incluir(t);
+    @Override
+    public void gravar(Object obj) throws Exception {
+        Item item = (Item) obj;
+        this.itens.add(item);
     }
 
-    public void alterar(Item t) {
-        repositorio.alterar(t);
+    @Override
+    public void excluir(Object obj) throws Exception {
+        Item item = (Item) obj;
+        this.itens.add(item);
     }
 
-    public void excluir(Item t) {
-        repositorio.excluir(t);
-    }
-
-    public List<Item> getListaTodas() {
-        return repositorio.getList();
+    @Override
+    public List<Item> getList() {
+        return this.itens;
     }
     
-    public void excluiItensDaTarefa(Integer idTarefa) {
-               
-        for (Item item : this.itens) {
-            if(item.getIdTarefa().equals(idTarefa)) {
-                repositorio.excluir(item);
-            }
-        }
-    }
-    
-    public List<Item> getListaDaTarefa(Integer idTarefa) {
-        List<Item> itensDaTarefa = new ArrayList<Item>();
-        
-        for (Item item : this.itens) {
-            if(item.getIdTarefa().equals(idTarefa)) {
-                itensDaTarefa.add(item);
-            }
-        }
-        
-        return itensDaTarefa;
-    }
-    
-    public List<Item> getListaDaTarefaConcluida(Integer idTarefa) {
-        List<Item> itensDaTarefa = new ArrayList<Item>();
-        
-        for (Item item : this.itens) {
-            if(item.getIdTarefa().equals(idTarefa)) {
-                if (item.getConcluido() == true) {
-                    itensDaTarefa.add(item);                    
-                }
-            }
-        }
-        
-        return itensDaTarefa;
-    }
+//    private Repositorio<Item> repositorio = new Repositorio<Item>(itens) {
+//        
+//        @Override
+//        public void setKey(Item t) {
+//            t.setId(Sequence.getId());
+//        }
+//        
+//    };
+//
+//    public void incluir(Item t) {
+//        repositorio.incluir(t);
+//    }
+//
+//    public void alterar(Item t) {
+//        repositorio.alterar(t);
+//    }
+//
+//    public void excluir(Item t) {
+//        repositorio.excluir(t);
+//    }
+//
+//    public List<Item> getListaTodas() {
+//        return repositorio.getList();
+//    }
+//    
+//    public void excluiItensDaTarefa(Integer idTarefa) {
+//               
+//        for (Item item : this.itens) {
+//            if(item.getIdTarefa().equals(idTarefa)) {
+//                repositorio.excluir(item);
+//            }
+//        }
+//    }
+//    
+//    public List<Item> getListaDaTarefa(Integer idTarefa) {
+//        List<Item> itensDaTarefa = new ArrayList<Item>();
+//        
+//        for (Item item : this.itens) {
+//            if(item.getIdTarefa().equals(idTarefa)) {
+//                itensDaTarefa.add(item);
+//            }
+//        }
+//        
+//        return itensDaTarefa;
+//    }
+//    
+//    public List<Item> getListaDaTarefaConcluida(Integer idTarefa) {
+//        List<Item> itensDaTarefa = new ArrayList<Item>();
+//        
+//        for (Item item : this.itens) {
+//            if(item.getIdTarefa().equals(idTarefa)) {
+//                if (item.getConcluido() == true) {
+//                    itensDaTarefa.add(item);                    
+//                }
+//            }
+//        }
+//        
+//        return itensDaTarefa;
+//    }
+
     
 }
