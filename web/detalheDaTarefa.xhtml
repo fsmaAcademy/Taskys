@@ -8,35 +8,39 @@
 
     <ui:define name="corpo">
         <h1 class="display-4 mt-5">Detalhes da tarefa</h1>
-        <h:form>
+        <h:form id="frm">
             <section class="mt-5">
                 <h:panelGrid columns="2" width="300px">
                     <h:outputText value="Código da tarefa: " />
                     <h:outputText value="#{tarefaBean.tarefa.id}" />
-                    
+
                     <h:outputText value="Título da tarefa: " />
                     <h:inputText value="#{tarefaBean.tarefa.nome}" styleClass="form-control-sm" />
-                    
+
                     <h:outputText value="Data de Entrega: " />
                     <h:inputText value="#{tarefaBean.tarefa.dataLimite}" styleClass="form-control-sm" />
-                    
+
                     <h:outputText value="Prioridade: " />
-                    <h:inputText value="#{tarefaBean.tarefa.prioridade}" styleClass="form-control-sm" id="numeroDaPrioridade"/>
-                    
-                    <h:outputText value="Progresso: " />
-                    <h:outputText value="#{tarefaBean.tarefa.porcentual}%" styleClass="form-control-sm" />
-                    
+                    <h:inputText value="#{tarefaBean.tarefa.prioridade}" id="numeroDaPrioridade" styleClass="form-control-sm" />
+
+                    <h:outputText value="Progresso Geral: (%) " />
+                    <h:outputText value="#{tarefaBean.tarefa.porcentual}" styleClass="form-control-sm" />
+
                     <h:outputText value="botao" rendered="false" />
                     <h:commandButton action="#{tarefaBean.alterar()}" value="Salvar alterações" styleClass="btn btn-primary mt-3" onclick="validaFormulario();" />
                 </h:panelGrid>
             </section>
         </h:form>
-        <section>
+        <section class="mt-5">
+            <h2>Itens da tarefa</h2>
             <h:form id="formularioDeCadastroDeItem" styleClass="mb-5">
                 <h:dataTable value="#{itemBean.getItens(tarefaBean.tarefa.id)}" var="item" styleClass="table mt-5">
                     <h:column>
-                        <f:facet name="header">Porcentual</f:facet>
-                        <h:inputText value="#{item.andamento}" styleClass="form-control mr-5" />
+                        <f:facet name="header">Porcentual(%)</f:facet>
+                        <h:inputText value="#{item.andamento}" id="andamento" styleClass="form-control mr-5" maxlength="3">
+                            <f:convertNumber type="number" minIntegerDigits="1" />
+                            <f:validateLongRange minimum="0" maximum="100"/>
+                        </h:inputText>
                     </h:column>
 
                     <h:column>

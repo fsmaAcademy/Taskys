@@ -6,7 +6,6 @@
 package com.tarefa.model;
 
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Objects;
 
 /**
@@ -35,7 +34,11 @@ public class Item {
     }
 
     public void setAndamento(Double andamento) {
-        this.andamento = andamento;
+        if (andamento < 0 || andamento >= 10) {
+            this.andamento = andamento;        
+        } else {
+            this.andamento = null;
+        }
     }
 
     public LocalDate getDataExecucao() {

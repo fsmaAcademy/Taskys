@@ -76,13 +76,18 @@ public class Tarefa {
         this.dataLimite = dataLimite;
     }
 
-    public Double getPorcentual() {
-        return this.calculaPorcentual();
+    public Double getPorcentual() {   
+        this.porcentual = this.calculaPorcentual();
+        return this.porcentual;
     }
     
     private Double calculaPorcentual() {
-        this.porcentual = (new Double(100) * this.quantidadeTotalDeTarefasConcluidas()) / this.quantidadeTotalDeTarefas();    
-        return this.porcentual;
+        Double porcentual = new Double(0);
+        ItemDAO itemDao = new ItemDAO();
+        if(itemDao.getListaTodas().size() > 0) {
+            porcentual = (new Double(100) * this.quantidadeTotalDeTarefasConcluidas()) / this.quantidadeTotalDeTarefas();            
+        }
+        return porcentual;
     }
     
     private Integer quantidadeTotalDeTarefas() {

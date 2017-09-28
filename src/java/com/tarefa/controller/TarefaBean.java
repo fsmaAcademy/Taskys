@@ -59,7 +59,7 @@ public class TarefaBean {
 
     public String alterar() {
         this.tarefaDao.alterar(this.tarefa);
-        return "listaDeTarefas?faces-redirect=true";
+        return null;
     }
 
     public String encerrar(Tarefa tarefa) {

@@ -11,6 +11,22 @@ function validaFormulario() {
     if (!(prioridade >= 0 && prioridade <= 10)) {
         alert("A prioridade precisa ser maior que 0 e menor que 10.");
         return false;
+    } else {
+        alert("Seus dados foram salvo com sucesso!");
+    }
+    
+    return true;
+}
+
+function validaFormularioDeItens() {
+    
+    porcentual = document.getElementById('frm:porcentual').value;
+    
+    if (!(porcentual >= 0.0 && porcentual <= 100.0)) {
+        alert("O andamento precisa ser de 0% a 100%");
+        return false;
+    } else {
+        alert("Seus dados foram salvos com sucesso!");
     }
     
     return true;

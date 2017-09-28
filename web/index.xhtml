@@ -22,8 +22,43 @@
                 </p>
             </div>
         </section>
+        <section class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Total de tarefas
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title display-2 text-center">#{tarefaBean.tarefas.size()}</h4>
+                        <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Tarefas em andamento
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title display-2 text-center">#{tarefaBean.tarefasEmAndamento.size()}</h4>
+                        <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        Tarefas concluidas
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title display-2 text-center">#{tarefaBean.tarefasConcluidas.size()}</h4>
+                        <p class="card-text text-center">With supporting text below as a natural lead-in to additional content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        
+
 
     </ui:define>
 

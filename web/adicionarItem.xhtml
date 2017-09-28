@@ -16,12 +16,15 @@
             <h:outputText value="#{tarefaBean.tarefa.nome}" />
         </h:panelGrid>
         <section>
-            <h:form>
+            <h:form id="frm">
                 <div class="col-6">
                     <div class="row">
                         <div class="form-group col-12">
                             <h:outputLabel value="Porcentual(%)" for="porcentual" styleClass="small" />
-                            <h:inputText styleClass="form-control" id="porcentual" value="#{itemBean.item.andamento}" />
+                            <h:inputText styleClass="form-control" id="porcentual" value="#{itemBean.item.andamento}" maxlength="3">
+                                <f:convertNumber type="number" minIntegerDigits="1" />
+                                <f:validateLongRange minimum="0" maximum="100"/>
+                            </h:inputText>
                         </div>
                     </div>
                 </div>
@@ -36,7 +39,7 @@
                 <div class="col-6">
                     <div class="row">
                         <div class="form-group col-12">
-                            <h:commandButton value="Salvar" action="#{itemBean.incluir()}" styleClass="btn btn-primary form-control mt-3" />
+                            <h:commandButton value="Salvar" action="#{itemBean.incluir()}" styleClass="btn btn-primary form-control mt-3" onclick="validaFormularioDeItens();" />
                         </div>
                     </div>
                 </div>
